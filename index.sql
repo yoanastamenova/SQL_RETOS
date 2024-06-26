@@ -190,7 +190,7 @@ CREATE DATABASE Iberia;
 
 USE Iberia;
 
-CREATE TABLE usuario (
+CREATE TABLE usuarios (
     id INT PRIMARY KEY auto_increment NOT NULL,
     username VARCHAR(50),
     email VARCHAR(150) UNIQUE,
@@ -223,5 +223,42 @@ CREATE TABLE notificaciones (
     mensajes TEXT
 );
 
+/* RETO 7 */
+
+CREATE DATABASE Wallapop;
+
+USE Wallapop;
+
+CREATE TABLE usuarios (
+    id INT PRIMARY KEY auto_increment NOT NULL,
+    username VARCHAR(50),
+    email VARCHAR(150) UNIQUE,
+    password VARCHAR(299) NOT NULL
+);
+
+CREATE TABLE articulos (
+    id INT PRIMARY KEY auto_increment NOT NULL,
+    name VARCHAR(50),
+    descripcion TEXT
+);
+
+CREATE TABLE ventas (
+    id INT PRIMARY KEY auto_increment NOT NULL,
+    usuario_id INT,
+    FOREIGN KEY (usuario_id) REFERENCES id(usuarios),
+    articulo_id INT,
+    FOREIGN KEY (articulo_id) REFERENCES id(articulos),
+    fecha DATETIME
+);
+
+CREATE TABLE resenas (
+    id INT PRIMARY KEY auto_increment NOT NULL,
+    usuario_id INT,
+    FOREIGN KEY (usuario_id) REFERENCES id(usuarios),
+    venta_id INT,
+    FOREIGN KEY (venta_id) REFERENCES id(ventas),
+    rating INT,
+    comment TEXT
+);
 
 
