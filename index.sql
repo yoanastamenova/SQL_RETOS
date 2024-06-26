@@ -129,20 +129,26 @@ USE Almacen;
 
 CREATE TABLE Productos (
     id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
-
-)
-
-CREATE TABLE Pedidos (
-    id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
-
-)
-
-CREATE TABLE Movimientos (
-    id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
-
-)
+    name VARCHAR(50),
+    descripcion text,
+);
 
 CREATE TABLE Pedidos (
     id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    producto_id INT,
+    movement VARCHAR(50),
+    movement_date DATE,
+    quantity INT
+);
 
+CREATE TABLE Stock (
+    id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    producto_id INT,
+    FOREIGN KEY (producto_id) REFERENCES producto_id(Pedidos),
+    quantity INT,
+    FOREIGN KEY (quantity) REFERENCES quantity(Pedidos),
+    last_restock DATE
 )
+
+/* RETO 5 */
+
