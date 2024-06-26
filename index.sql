@@ -186,4 +186,42 @@ CREATE TABLE recomendaciones (
 
 /* RETO 6 */
 
+CREATE DATABASE Iberia;
+
+USE Iberia;
+
+CREATE TABLE usuario (
+    id INT PRIMARY KEY auto_increment NOT NULL,
+    username VARCHAR(50),
+    email VARCHAR(150) UNIQUE,
+    password VARCHAR(299) NOT NULL
+);
+
+CREATE TABLE vuelos (
+    id INT PRIMARY KEY auto_increment NOT NULL,
+    numero INT,
+    salida VARCHAR(20),
+    llegada VARCHAR(20),
+    hora_salida DATETIME,
+    hora_llegada DATETIME,
+    
+);
+
+CREATE TABLE reservas (
+    id INT PRIMARY KEY auto_increment NOT NULL,
+    usuario_id INT,
+    FOREIGN KEY (usuario_id) REFERENCES usuario_id(usuario),
+    vuelo_id INT,
+    FOREIGN KEY (vuelo_id) REFERENCES vuelo_id(vuelos),
+    date DATETIME
+);
+
+CREATE TABLE notificaciones (
+    id INT PRIMARY KEY auto_increment NOT NULL,
+    vuelo_id INT,
+    FOREIGN KEY (vuelo_id) REFERENCES vuelo_id(vuelos),
+    mensajes TEXT
+);
+
+
 
