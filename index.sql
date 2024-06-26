@@ -152,3 +152,38 @@ CREATE TABLE Stock (
 
 /* RETO 5 */
 
+CREATE DATABASE Excercise;
+
+USE Excercise;
+
+CREATE TABLE usuario (
+    id INT PRIMARY KEY auto_increment NOT NULL,
+    username VARCHAR(50),
+    email VARCHAR(100) UNIQUE NOT NULL,
+    password VARCHAR(250)
+);
+
+CREATE TABLE actividades (
+    id INT PRIMARY KEY auto_increment NOT NULL,
+    usuario_id INT,
+    FOREIGN KEY (usuario_id) REFERENCES usuario_id(usuario),
+    entrenamientos_id INT,
+    FOREIGN KEY (entrenamientos_id) REFERENCES entrenamientos_id(entrenamientos),
+    );
+
+CREATE TABLE entrenamientos (
+    id INT PRIMARY KEY auto_increment NOT NULL,
+    date DATE,
+    duration INT,
+    calories INT
+);
+
+CREATE TABLE recomendaciones (
+    id INT PRIMARY KEY auto_increment NOT NULL,
+    entrenamientos_id INT,
+    FOREIGN KEY (entrenamientos_id) REFERENCES entrenamientos_id(entrenamientos),
+    )
+
+/* RETO 6 */
+
+
