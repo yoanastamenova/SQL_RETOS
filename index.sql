@@ -262,3 +262,42 @@ CREATE TABLE resenas (
 );
 
 
+/* RETO 8*/
+
+CREATE DATABASE ABC;
+
+USE ABC;
+
+CREATE TABLE usuarios (
+    id INT PRIMARY KEY auto_increment NOT NULL,
+    username VARCHAR(50),
+    email VARCHAR(150) UNIQUE,
+    password VARCHAR(299) NOT NULL
+);
+
+CREATE TABLE peliculas (
+    id INT PRIMARY KEY auto_increment NOT NULL,
+    title VARCHAR(50),
+    descripcion TEXT,
+    ano INT,
+    genero VARCHAR(50)
+);
+
+CREATE TABLE lista (
+    id INT PRIMARY KEY auto_increment NOT NULL,
+    usuario_id INT,
+    FOREIGN KEY (usuario_id) REFERENCES id(usuarios),
+    peliculas INT,
+    FOREIGN KEY (peliculas_id) REFERENCES id(peliculas),
+    descripcion TEXT
+);
+
+CREATE TABLE resenas (
+    id INT PRIMARY KEY auto_increment NOT NULL,
+    usuario_id INT,
+    FOREIGN KEY (usuario_id) REFERENCES id(usuarios),
+    eliculas INT,
+    FOREIGN KEY (peliculas_id) REFERENCES id(peliculas),
+    rating INT,
+    comment TEXT
+);
